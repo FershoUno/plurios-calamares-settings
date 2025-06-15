@@ -1,0 +1,15 @@
+Package: plurios-calamares-settings
+Source: calamares-settings-ubuntu
+Version: CHANGE_VERSION
+Architecture: all
+Maintainer: Fersho Uno <fersh0un0@gmail.com>
+Installed-Size: CHANGE_SIZE
+Depends: calamares-settings-ubuntu-common (>= 1:24.04.40), qt5-style-kvantum, qt5-style-kvantum-themes
+Conflicts: calamares-settings-ubuntu-flavor
+Provides: calamares-settings-ubuntu-flavor
+Section: devel
+Priority: optional
+Homepage: https://code.launchpad.net/~ubuntu-qt-code/+git/calamares-settings-ubuntu
+Description: PluriOS Calamares Settings and Branding
+ This package contains the Calamares settings and branding for PluriOS.
+ As part of the branding the installer slideshow is contained within.

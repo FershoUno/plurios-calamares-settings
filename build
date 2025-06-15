@@ -1,0 +1,34 @@
+#!/bin/bash
+# Author: @FershoUno <https://github.com/FershoUno>
+
+if [ "$(id -u)" -ne 0 ]; then
+  echo "This script must be run as root."
+  exit 1
+fi
+
+NAME="plurios-calamares-settings"
+VERSION="0.3"
+ARCH="all"
+
+rm -rf *.deb *.tar.gz ${NAME}*${ARCH}* "${NAME}" 2>/dev/null
+
+DIR_PACKAGE="${NAME}_${VERSION}_${ARCH}"
+
+mkdir -p $DIR_PACKAGE
+
+cp -r DEBIAN $DIR_PACKAGE/
+cp -r etc/ $DIR_PACKAGE/
+cp -r usr/ $DIR_PACKAGE/
+
+
+sed -i "s/CHANGE_VERSION/$VERSION/g" "$DIR_PACKAGE/DEBIAN/control"
+sed -i "s/CHANGE_VERSION/$VERSION/g" "$DIR_PACKAGE/usr/share/applications/plurios-calamares.desktop"
+
+PACKAGE_SIZE=$(du -ks --exclude=DEBIAN "$DIR_PACKAGE/" | awk '{print $1}')
+
+sed -i "s/CHANGE_SIZE/$PACKAGE_SIZE/g" "$DIR_PACKAGE/DEBIAN/control"
+
+
+chown -R root:root $DIR_PACKAGE/
+
+dpkg-deb --build $DIR_PACKAGE/

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=CHANGE_VERSION
+Name=Instalar PluriOS
+Exec=sudo -E /usr/bin/calamares-launch-normal
+Comment=Calamares — System Installer
+Comment[es]=Calamares — Instalador del Sistema
+Icon=plurios-icon-installer
+Terminal=false
+StartupNotify=true
+Categories=System;PluriOS;
+Keywords=installer;calamares;system;
+EOF
