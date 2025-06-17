@@ -10,4 +10,3 @@ Terminal=false
 StartupNotify=true
 Categories=System;PluriOS;
 Keywords=installer;calamares;system;
-EOF
